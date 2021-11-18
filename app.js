@@ -9,6 +9,34 @@ var img1 = null;
 var img2 = null;
 var cardCounter = 0;
 var isPlayerOnesTurn = true;
+var points1 = 0;
+var points2 = 0; 
+function startgame() {
+    counter = 0;
+    cardCounter = 0;
+    isPlayerOnesTurn = false;
+    points1 = 0;
+    points2 =0; 
+    console.log("hello"); 
+    // document.getElementsByTagName("img").style.filter = "brightness(0%)";
+    document.getElementById("cell1").style.filter ="brightness(0%)";
+    document.getElementById("cell2").style.filter ="brightness(0%)";
+    document.getElementById("cell3").style.filter ="brightness(0%)";
+    document.getElementById("cell4").style.filter ="brightness(0%)";
+    document.getElementById("cell5").style.filter ="brightness(0%)";
+    document.getElementById("cell6").style.filter ="brightness(0%)";
+    document.getElementById("cell7").style.filter ="brightness(0%)";
+    document.getElementById("cell8").style.filter ="brightness(0%)";
+    document.getElementById("cell9").style.filter ="brightness(0%)";
+    document.getElementById("cell10").style.filter ="brightness(0%)";
+    document.getElementById("cell11").style.filter ="brightness(0%)";
+    document.getElementById("cell12").style.filter ="brightness(0%)";
+    document.getElementById("cell13").style.filter ="brightness(0%)";
+    document.getElementById("cell14").style.filter ="brightness(0%)";
+    document.getElementById("cell15").style.filter ="brightness(0%)";
+    document.getElementById("cell16").style.filter ="brightness(0%)";
+
+}
 console.log(cells)
 cells.forEach(cell => {
    cell.addEventListener("click", function(e) {
@@ -27,7 +55,21 @@ cells.forEach(cell => {
                 console.log("congrats");
                 counter = 0;
                 cardCounter++;
-                console.log(cardCounter);
+                console.log(cardCounter); 
+                if (isPlayerOnesTurn) { 
+                    console.log("reached");
+                    points1++; 
+                    document.getElementById("p1points").innerHTML= points1;
+                    
+                }
+                else { 
+                    console.log("reached2");
+                    points2++;
+                    document.getElementById("p2points").innerHTML= points2;
+                }
+            
+                
+            
             }
             else {
                 setTimeout(
@@ -49,8 +91,18 @@ cells.forEach(cell => {
 
 function checkGameStatus() {
     if(cardCounter == 8){
-        alert("Game Over!");
+        if (points1 > points2) {
+            console.log("poop");
+            document.getElementById("gameover").innerHTML= "Game Over! Player 1 wins!";
+
+        }
+        else { 
+            console.log("poop2");
+            document.getElementById("gameover").innerHTML= "Game Over! Player 2 wins!";
+        }
+     
     }
+    
 }
 
 function displayPlayerTurn(){
